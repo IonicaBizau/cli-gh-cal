@@ -1,0 +1,27 @@
+{
+  "name": "cli-gh-cal",
+  "version": "1.0.0",
+  "description": "GitHub like calendar graphs in command line.",
+  "main": "lib/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IonicaBizau/cli-gh-cal.git"
+  },
+  "keywords": [
+    "github",
+    "cli",
+    "calendar"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/cli-gh-cal/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/cli-gh-cal"
+}
