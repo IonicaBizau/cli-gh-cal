@@ -7,10 +7,11 @@ var CliGhCal = require("../lib")
   , CLP = require("clp")
   , Package = require("../package")
   , Moment = require("moment")
+  , Typpy = require("typpy")
   ;
 
 // Parse the command line arguments
-var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this format: [[\"14/03/2015\", 5]]", "data")
+var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this format: [[\"14/03/2015\", 5]]", "data", [])
   , themeOpt = new CLP.Option(["t", "theme"], "The theme to use.", "theme", "DARK")
   , startOpt = new CLP.Option(["s", "start"], "The start date.", "date",  new Moment().subtract(1, "years"))
   , endOpt = new CLP.Option(["e", "end"], "The end date.", "date", new Moment())
@@ -37,11 +38,19 @@ var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this forma
   , options = null
   ;
 
+if (Typpy(dataOpt.value) === "string") {
+    try {
+        dataOpt.value = JSON.parse(dataOpt.value);
+    } catch (e) {
+        return Logger.log("Cannot parse the input data. Make sure you pass valid JSON.", "error");
+    }
+}
 
 // Create the options
 options = {
-    start: startDateOpt.value ? Moment(startDateOpt.value) : Moment().subtract(1, "years")
-  , end: endDateOpt.value ? Moment(endDateOpt.value) : Moment()
+    start: startOpt.is_provided ? Moment(startOpt.value) : Moment().subtract(1, "years")
+  , end: endOpt.is_provided ? Moment(endOpt.value) : Moment()
+  , theme: /LIGHT|DARK/.test(themeOpt.value) ? themeOpt.value : null
 };
 
 // Validate the dates
@@ -55,18 +64,6 @@ if (!options.end || !options.end.isValid()) {
     Logger.log("Invalid end date. Using default instead (" + options.end.format("LL") + ").", "warn");
 }
 
-if (authorsOpt.is_provided) {
-    options.repo = process.cwd();
-    options.no_ansi = noAnsiOpt.is_provided;
-    options.radius = (process.stdout.rows / 2) - 4;
-} else {
-    options.theme = noAnsiOpt.is_provided ? null
-                  : lightOpt.is_provided ? "LIGHT": "DARK"
-                  ;
-}
-
-// Show the graphs
-GitStats[authorsOpt.is_provided ? "authorsPie" : "ansiCalendar"](options, function (err, data) {
-    if (err) { return Logger.log(err, "error"); }
-    process.stdout.write(data + "\n");
-});
+debugger
+// Show the graph
+process.stdout.write(CliGhCal(dataOpt.value, options) + "\n");
