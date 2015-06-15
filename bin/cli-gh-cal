@@ -1,0 +1,72 @@
+#!/usr/bin/env node
+
+// Dependencies
+var CliGhCal = require("../lib")
+  , AnsiParser = require("ansi-parser")
+  , Logger = require("bug-killer")
+  , CLP = require("clp")
+  , Package = require("../package")
+  , Moment = require("moment")
+  ;
+
+// Parse the command line arguments
+var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this format: [[\"14/03/2015\", 5]]", "data")
+  , themeOpt = new CLP.Option(["t", "theme"], "The theme to use.", "theme", "DARK")
+  , startOpt = new CLP.Option(["s", "start"], "The start date.", "date",  new Moment().subtract(1, "years"))
+  , endOpt = new CLP.Option(["e", "end"], "The end date.", "date", new Moment())
+  , noAnsiOpt = new CLP.Option(["n", "no-ansi"], "Forces the tool not to use ANSI styles.")
+  , lightOpt = new CLP.Option(["l", "light"], "Enables the light theme.")
+  , parser = new CLP({
+        name: "CliGhCal"
+      , version: Package.version
+      , exe: Package.name
+      , examples: [
+            "cli-gh-cal -d '[[\"14/03/2015\", 5]]' -t none"
+          , "cli-gh-cal -d '[[\"14/03/2015\", 5]]' -s '1 January 2014'"
+        ]
+      , docs_url: Package.homepage
+      , process: true
+    }, [
+        dataOpt
+      , themeOpt
+      , startOpt
+      , endOpt
+      , noAnsiOpt
+      , lightOpt
+    ])
+  , options = null
+  ;
+
+
+// Create the options
+options = {
+    start: startDateOpt.value ? Moment(startDateOpt.value) : Moment().subtract(1, "years")
+  , end: endDateOpt.value ? Moment(endDateOpt.value) : Moment()
+};
+
+// Validate the dates
+if (!options.start || !options.start.isValid()) {
+    options.start = Moment().subtract(1, "years");
+    Logger.log("Invalid start date. Using default instead (" + options.start.format("LL") + ").", "warn");
+}
+
+if (!options.end || !options.end.isValid()) {
+    options.end = Moment();
+    Logger.log("Invalid end date. Using default instead (" + options.end.format("LL") + ").", "warn");
+}
+
+if (authorsOpt.is_provided) {
+    options.repo = process.cwd();
+    options.no_ansi = noAnsiOpt.is_provided;
+    options.radius = (process.stdout.rows / 2) - 4;
+} else {
+    options.theme = noAnsiOpt.is_provided ? null
+                  : lightOpt.is_provided ? "LIGHT": "DARK"
+                  ;
+}
+
+// Show the graphs
+GitStats[authorsOpt.is_provided ? "authorsPie" : "ansiCalendar"](options, function (err, data) {
+    if (err) { return Logger.log(err, "error"); }
+    process.stdout.write(data + "\n");
+});
