@@ -13,6 +13,8 @@
 <!-- * * * Thanks! * * *                                                    -->
 <!---------------------------------------------------------------------------->
 
+![cli-gh-cal](http://i.imgur.com/pw82kYP.png)
+
 # `$ cli-gh-cal` [![Donate now][donate-now]][paypal-donations]
 
 GitHub like calendar graphs in command line.

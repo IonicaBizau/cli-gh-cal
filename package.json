@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/IonicaBizau/cli-gh-cal/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/cli-gh-cal"
+  "homepage": "https://github.com/IonicaBizau/cli-gh-cal",
+  "blah": {
+      "h_img": "http://i.imgur.com/pw82kYP.png"
+  }
 }
