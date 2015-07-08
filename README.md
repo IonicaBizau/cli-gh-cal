@@ -19,6 +19,8 @@
 
 GitHub like calendar graphs in command line.
 
+![cli-gh-cal](http://i.imgur.com/M5WIEsM.png)
+
 ## Installation
 
 ```sh
