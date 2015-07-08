@@ -22,8 +22,8 @@ var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this forma
       , version: Package.version
       , exe: Package.name
       , examples: [
-            "cli-gh-cal -d '[[\"14/03/2015\", 5]]' -t none"
-          , "cli-gh-cal -d '[[\"14/03/2015\", 5]]' -s '1 January 2014'"
+            "cli-gh-cal -d '[[\"03/14/2015\", 5]]' -t none"
+          , "cli-gh-cal -d '[[\"03/14/2015\", 5]]' -s '1 January 2014'"
         ]
       , docs_url: Package.homepage
       , process: true
@@ -64,6 +64,5 @@ if (!options.end || !options.end.isValid()) {
     Logger.log("Invalid end date. Using default instead (" + options.end.format("LL") + ").", "warn");
 }
 
-debugger
 // Show the graph
 process.stdout.write(CliGhCal(dataOpt.value, options) + "\n");
