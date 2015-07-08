@@ -17,6 +17,7 @@ var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this forma
   , endOpt = new CLP.Option(["e", "end"], "The end date.", "date", new Moment())
   , noAnsiOpt = new CLP.Option(["n", "no-ansi"], "Forces the tool not to use ANSI styles.")
   , lightOpt = new CLP.Option(["l", "light"], "Enables the light theme.")
+  , firstDatOpt = new CLP.Option(["f", "first-day"], "Sets the first day (e.g. 'Sun').", "day")
   , parser = new CLP({
         name: "CliGhCal"
       , version: Package.version
@@ -34,6 +35,7 @@ var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this forma
       , endOpt
       , noAnsiOpt
       , lightOpt
+      , firstDatOpt
     ])
   , options = null
   ;
@@ -51,6 +53,7 @@ options = {
     start: startOpt.is_provided ? Moment(startOpt.value) : Moment().subtract(1, "years")
   , end: endOpt.is_provided ? Moment(endOpt.value) : Moment()
   , theme: /LIGHT|DARK/.test(themeOpt.value) ? themeOpt.value : null
+  , firstDay: firstDatOpt.value || undefined
 };
 
 // Validate the dates
