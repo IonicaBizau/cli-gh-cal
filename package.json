@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/IonicaBizau/cli-gh-cal",
   "blah": {
-      "h_img": "http://i.imgur.com/pw82kYP.png"
+    "h_img": "http://i.imgur.com/pw82kYP.png"
+  },
+  "dependencies": {
+    "deffy": "^2.0.0",
+    "typpy": "^2.0.0"
   }
 }
