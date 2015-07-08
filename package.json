@@ -6,6 +6,9 @@
   "directories": {
     "example": "example"
   },
+  "bin": {
+      "cli-gh-cal": "./bin/cli-gh-cal"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,16 +22,26 @@
     "calendar"
   ],
   "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "MIT",
+  "license": "KINDLY",
   "bugs": {
     "url": "https://github.com/IonicaBizau/cli-gh-cal/issues"
   },
   "homepage": "https://github.com/IonicaBizau/cli-gh-cal",
   "blah": {
-    "h_img": "http://i.imgur.com/pw82kYP.png"
+    "h_img": "http://i.imgur.com/pw82kYP.png",
+    "ex_img": "http://i.imgur.com/M5WIEsM.png"
   },
   "dependencies": {
     "deffy": "^2.0.0",
-    "typpy": "^2.0.0"
-  }
+    "typpy": "^2.0.0",
+    "moment": "^2.9.0",
+    "git-stats-colors": "^2.1.0",
+    "couleurs": "^5.0.0",
+    "ul": "^5.0.0",
+    "cli-box": "^5.0.0",
+    "ansi-parser": "^3.0.0",
+    "bug-killer": "4.0.0",
+    "clp": "^3.0.0"
+  },
+  "devDependencies": {}
 }
