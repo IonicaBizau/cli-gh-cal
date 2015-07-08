@@ -10,7 +10,7 @@
       "cli-gh-cal": "./bin/cli-gh-cal"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./bin/cli-gh-cal -d '[[\"03/14/2015\", 5], [\"1 January 2015\", 30]]'"
   },
   "repository": {
     "type": "git",
