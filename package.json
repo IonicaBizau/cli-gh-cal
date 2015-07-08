@@ -7,10 +7,10 @@
     "example": "example"
   },
   "bin": {
-      "cli-gh-cal": "./bin/cli-gh-cal"
+    "cli-gh-cal": "./bin/cli-gh-cal"
   },
   "scripts": {
-    "test": "./bin/cli-gh-cal -d '[[\"03/14/2015\", 5], [\"1 January 2015\", 30]]'"
+    "test": "./bin/cli-gh-cal -d '[[\"03/14/2015\", 5], [\"1 January 2015\", 30]]' -t none"
   },
   "repository": {
     "type": "git",
