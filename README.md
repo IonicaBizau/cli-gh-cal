@@ -1,8 +1,8 @@
 [![cli-gh-cal](http://i.imgur.com/pw82kYP.png)](#)
 
-# `$ cli-gh-cal` [![Support this project][donate-now]][paypal-donations]
+# `$ cli-gh-cal` [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Travis](https://img.shields.io/travis/IonicaBizau/cli-gh-cal.svg)](https://travis-ci.org/IonicaBizau/cli-gh-cal/) [![Version](https://img.shields.io/npm/v/cli-gh-cal.svg)](https://www.npmjs.com/package/cli-gh-cal) [![Downloads](https://img.shields.io/npm/dt/cli-gh-cal.svg)](https://www.npmjs.com/package/cli-gh-cal) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
-GitHub like calendar graphs in command line.
+> GitHub like calendar graphs in command line.
 
 [![cli-gh-cal](http://i.imgur.com/M5WIEsM.png)](#)
 
