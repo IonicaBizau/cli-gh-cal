@@ -1,4 +1,5 @@
 ## Documentation
+
 You can see below the API reference of this module.
 
 ### `CliGhCal(data, options)`
@@ -9,7 +10,7 @@ ANSI styles.
 - **Array** `data`: An array of arrays in the following format:
 ```js
 [
-   ["1 January 2015", 5]
+  ["1 January 2015", 5]
 , ["1 May 2015", 5]
 , ["1 May 2015", 5]
 ]
