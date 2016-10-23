@@ -36,6 +36,7 @@ Options:
   -e, --end <date>     The end date.
   -n, --no-ansi        Forces the tool not to use ANSI styles.
   -l, --light          Enables the light theme.
+  --raw                Get raw data.
   -v, --version        Displays version information.
   -h, --help           Displays this help.
 

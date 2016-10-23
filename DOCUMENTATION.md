@@ -24,6 +24,7 @@ ANSI styles.
  - `noCrop` (Boolean): By default, when there's no enough horizontal space,
    the graph will be cropped in the left side. Use `noCrop:true` when you really
    want to get the result to not be cropped.
+ - `raw` (Boolean): If `true`, the raw results will be returned.
 
 #### Return
 - **String** The stringified calendar built from input data.
