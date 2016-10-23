@@ -11,11 +11,6 @@ const Tilda = require("tilda")
 new Tilda(`${__dirname}/../package.json`, {
     options: [
         {
-            name: "foo"
-          , opts: ["f", "foo"]
-          , desc: "Dummy argument"
-        }
-      , {
             opts: ["d", "data"]
           , desc: "Provide the JSON data in this format: [[\"03/14/2015\", 5]]"
           , name: "data"
