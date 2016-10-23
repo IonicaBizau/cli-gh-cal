@@ -18,10 +18,12 @@ ANSI styles.
 
  You can use any date input parsable by [`moment`](http://momentjs.com/).
 - **Object** `options`: An object containing the following fields:
- - `firstDay` (String): The first day in the week (default: `"Sun"`).
  - `start` (String|Date|Moment): The start date (parsable string or date object). The default is *one year ago*.
  - `end` (String|Date|Moment): The end date (parsable string or date object). The default is *now*.
  - `theme` (String): The theme name (default: `"DARK"`).
+ - `noCrop` (Boolean): By default, when there's no enough horizontal space,
+   the graph will be cropped in the left side. Use `noCrop:true` when you really
+   want to get the result to not be cropped.
 
 #### Return
 - **String** The stringified calendar built from input data.

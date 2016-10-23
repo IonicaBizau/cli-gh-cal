@@ -26,23 +26,25 @@ Then, run `cli-gh-cal --help` and see what the CLI tool can do.
 $ cli-gh-cal --help
 Usage: cli-gh-cal [options]
 
+GitHub like calendar graphs in command line.
+
 Options:
-  -d, --data <data>      Provide the JSON data in this format:
-                         [["03/14/2015", 5]]
-  -t, --theme <theme>    The theme to use.
-  -s, --start <date>     The start date.
-  -e, --end <date>       The end date.
-  -n, --no-ansi          Forces the tool not to use ANSI styles.
-  -l, --light            Enables the light theme.
-  -f, --first-day <day>  Sets the first day (e.g. 'Sun').
-  -h, --help             Displays this help.
-  -v, --version          Displays version information.
+  -f, --foo <foo>      Dummy argument
+  -d, --data <data>    Provide the JSON data in this format:
+                       [["03/14/2015", 5]]
+  -t, --theme <theme>  The theme to use.
+  -s, --start <date>   The start date.
+  -e, --end <date>     The end date.
+  -n, --no-ansi        Forces the tool not to use ANSI styles.
+  -l, --light          Enables the light theme.
+  -v, --version        Displays version information.
+  -h, --help           Displays this help.
 
 Examples:
-  cli-gh-cal -d '[["03/14/2015", 5]]' -t none
-  cli-gh-cal -d '[["03/14/2015", 5]]' -s '1 January 2014'
+  $ cli-gh-cal -d '[["03/14/2015", 5]]' -t none
+  $ cli-gh-cal -d '[["03/14/2015", 5]]' -s '1 January 2014'
 
-Documentation can be found at https://github.com/IonicaBizau/cli-gh-cal
+Documentation can be found at https://github.com/IonicaBizau/cli-gh-cal.
 ```
 
 ## :clipboard: Example
