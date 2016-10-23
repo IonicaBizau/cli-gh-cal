@@ -29,7 +29,6 @@ Usage: cli-gh-cal [options]
 GitHub like calendar graphs in command line.
 
 Options:
-  -f, --foo <foo>      Dummy argument
   -d, --data <data>    Provide the JSON data in this format:
                        [["03/14/2015", 5]]
   -t, --theme <theme>  The theme to use.
