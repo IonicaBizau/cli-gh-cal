@@ -42,6 +42,10 @@ new Tilda(`${__dirname}/../package.json`, {
             opts: ["l", "light"]
           , desc: "Enables the light theme."
         }
+      , {
+            opts: ["raw"]
+          , desc: "Get raw data."
+        }
     ]
   , examples: [
         "cli-gh-cal -d '[[\"03/14/2015\", 5]]' -t none"
@@ -67,6 +71,7 @@ new Tilda(`${__dirname}/../package.json`, {
         start: startOpt.is_provided ? Moment(startOpt.value) : Moment().subtract(1, "years")
       , end: endOpt.is_provided ? Moment(endOpt.value) : Moment()
       , theme: noAnsiOpt.is_provided ? null : /LIGHT|DARK/.test(themeOpt.value) ? themeOpt.value : null
+      , raw: action.options.raw.is_provided
     };
 
     // Validate the dates
@@ -79,6 +84,7 @@ new Tilda(`${__dirname}/../package.json`, {
         options.end = Moment();
         Logger.log("Invalid end date. Using default instead (" + options.end.format("LL") + ").", "warn");
     }
+
 
     console.log(CliGhCal(dataOpt.value, options));
 });
