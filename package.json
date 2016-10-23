@@ -1,13 +1,13 @@
 {
+  "bin": {
+    "cli-gh-cal": "bin/cli-gh-cal"
+  },
   "name": "cli-gh-cal",
   "version": "1.2.5",
   "description": "GitHub like calendar graphs in command line.",
   "main": "lib/index.js",
   "directories": {
     "example": "example"
-  },
-  "bin": {
-    "cli-gh-cal": "./bin/cli-gh-cal"
   },
   "scripts": {
     "test": "./bin/cli-gh-cal -d '[[\"03/14/2015\", 5], [\"1 January 2015\", 30]]' -t none"
@@ -33,14 +33,15 @@
   },
   "dependencies": {
     "ansi-parser": "^3.0.0",
-    "bug-killer": "4.0.0",
-    "cli-box": "^5.0.0",
+    "bug-killer": "^4.2.5",
+    "cli-box": "^6.0.5",
     "cli-size": "^1.0.3",
-    "clp": "^3.0.0",
-    "couleurs": "^5.0.0",
+    "clp": "^4.0.4",
+    "couleurs": "^6.0.5",
     "deffy": "^2.0.0",
     "git-stats-colors": "^2.1.0",
     "moment": "^2.9.0",
+    "tilda": "^4.3.3",
     "typpy": "^2.0.0",
     "ul": "^5.0.0"
   },

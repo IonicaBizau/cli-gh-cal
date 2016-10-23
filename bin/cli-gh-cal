@@ -1,68 +1,89 @@
 #!/usr/bin/env node
+"use strict";
 
-// Dependencies
-var CliGhCal = require("../lib")
-  , AnsiParser = require("ansi-parser")
-  , Logger = require("bug-killer")
-  , CLP = require("clp")
-  , Package = require("../package")
-  , Moment = require("moment")
-  , Typpy = require("typpy")
-  ;
+const Tilda = require("tilda")
+    , CliGhCal = require("..")
+    , Typpy = require("typpy")
+    , Logger = require("bug-killer")
+    , Moment = require("moment")
+    ;
 
-// Parse the command line arguments
-var dataOpt = new CLP.Option(["d", "data"], "Provide the JSON data in this format: [[\"03/14/2015\", 5]]", "data", [])
-  , themeOpt = new CLP.Option(["t", "theme"], "The theme to use.", "theme", "DARK")
-  , startOpt = new CLP.Option(["s", "start"], "The start date.", "date",  new Moment().subtract(1, "years"))
-  , endOpt = new CLP.Option(["e", "end"], "The end date.", "date", new Moment())
-  , noAnsiOpt = new CLP.Option(["n", "no-ansi"], "Forces the tool not to use ANSI styles.")
-  , lightOpt = new CLP.Option(["l", "light"], "Enables the light theme.")
-  , parser = new CLP({
-        name: "CliGhCal"
-      , version: Package.version
-      , exe: Package.name
-      , examples: [
-            "cli-gh-cal -d '[[\"03/14/2015\", 5]]' -t none"
-          , "cli-gh-cal -d '[[\"03/14/2015\", 5]]' -s '1 January 2014'"
-        ]
-      , docs_url: Package.homepage
-      , process: true
-    }, [
-        dataOpt
-      , themeOpt
-      , startOpt
-      , endOpt
-      , noAnsiOpt
-      , lightOpt
-    ])
-  , options = null
-  ;
+new Tilda(`${__dirname}/../package.json`, {
+    options: [
+        {
+            name: "foo"
+          , opts: ["f", "foo"]
+          , desc: "Dummy argument"
+        }
+      , {
+            opts: ["d", "data"]
+          , desc: "Provide the JSON data in this format: [[\"03/14/2015\", 5]]"
+          , name: "data"
+          , default: []
+        }
+      , {
+            opts: ["t", "theme"]
+          , desc: "The theme to use."
+          , name: "theme"
+          , default: "DARK"
+        }
+      , {
+            opts: ["s", "start"]
+          , desc: "The start date."
+          , name: "date"
+          , default:  new Moment().subtract(1, "years")
+        }
+      , {
+            opts: ["e", "end"]
+          , desc: "The end date."
+          , name: "date"
+          , default: new Moment()
+        }
+      , {
+            opts: ["n", "no-ansi"]
+          , desc: "Forces the tool not to use ANSI styles."
+        }
+      , {
+            opts: ["l", "light"]
+          , desc: "Enables the light theme."
+        }
+    ]
+  , examples: [
+        "cli-gh-cal -d '[[\"03/14/2015\", 5]]' -t none"
+      , "cli-gh-cal -d '[[\"03/14/2015\", 5]]' -s '1 January 2014'"
+    ]
+}).main(action => {
+    let dataOpt = action.options.data
+      , startOpt = action.options.start
+      , endOpt = action.options.end
+      , noAnsiOpt = action.options.noAnsi
+      , themeOpt = action.options.theme
+      ;
 
-if (Typpy(dataOpt.value) === "string") {
-    try {
-        dataOpt.value = JSON.parse(dataOpt.value);
-    } catch (e) {
-        return Logger.log("Cannot parse the input data. Make sure you pass valid JSON.", "error");
+    if (Typpy(dataOpt.value) === "string") {
+        try {
+            dataOpt.value = JSON.parse(dataOpt.value);
+        } catch (e) {
+            return Logger.log("Cannot parse the input data. Make sure you pass valid JSON.", "error");
+        }
     }
-}
 
-// Create the options
-options = {
-    start: startOpt.is_provided ? Moment(startOpt.value) : Moment().subtract(1, "years")
-  , end: endOpt.is_provided ? Moment(endOpt.value) : Moment()
-  , theme: noAnsiOpt.is_provided ? null : /LIGHT|DARK/.test(themeOpt.value) ? themeOpt.value : null
-};
+    let options = {
+        start: startOpt.is_provided ? Moment(startOpt.value) : Moment().subtract(1, "years")
+      , end: endOpt.is_provided ? Moment(endOpt.value) : Moment()
+      , theme: noAnsiOpt.is_provided ? null : /LIGHT|DARK/.test(themeOpt.value) ? themeOpt.value : null
+    };
 
-// Validate the dates
-if (!options.start || !options.start.isValid()) {
-    options.start = Moment().subtract(1, "years");
-    Logger.log("Invalid start date. Using default instead (" + options.start.format("LL") + ").", "warn");
-}
+    // Validate the dates
+    if (!options.start || !options.start.isValid()) {
+        options.start = Moment().subtract(1, "years");
+        Logger.log("Invalid start date. Using default instead (" + options.start.format("LL") + ").", "warn");
+    }
 
-if (!options.end || !options.end.isValid()) {
-    options.end = Moment();
-    Logger.log("Invalid end date. Using default instead (" + options.end.format("LL") + ").", "warn");
-}
+    if (!options.end || !options.end.isValid()) {
+        options.end = Moment();
+        Logger.log("Invalid end date. Using default instead (" + options.end.format("LL") + ").", "warn");
+    }
 
-// Show the graph
-process.stdout.write(CliGhCal(dataOpt.value, options) + "\n");
+    console.log(CliGhCal(dataOpt.value, options));
+});
