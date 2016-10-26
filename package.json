@@ -3,7 +3,7 @@
     "cli-gh-cal": "bin/cli-gh-cal"
   },
   "name": "cli-gh-cal",
-  "version": "1.3.4",
+  "version": "1.4.0",
   "description": "GitHub like calendar graphs in command line.",
   "main": "lib/index.js",
   "directories": {
