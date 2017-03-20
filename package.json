@@ -3,7 +3,7 @@
     "cli-gh-cal": "bin/cli-gh-cal"
   },
   "name": "cli-gh-cal",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "GitHub like calendar graphs in command line.",
   "main": "lib/index.js",
   "directories": {
@@ -21,7 +21,7 @@
     "cli",
     "calendar"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/IonicaBizau/cli-gh-cal/issues"
@@ -49,12 +49,11 @@
     "bin/",
     "app/",
     "lib/",
-    "build/",
     "dist/",
     "src/",
+    "scripts/",
     "resources/",
     "menu/",
-    "scripts/",
     "cli.js",
     "index.js"
   ]
