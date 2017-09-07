@@ -7,6 +7,7 @@ Builds a GitHub Contributions like calendar using characters and
 ANSI styles.
 
 #### Params
+
 - **Array** `data`: An array of arrays in the following format:
 ```js
 [
