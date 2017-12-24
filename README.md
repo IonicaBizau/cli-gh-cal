@@ -17,7 +17,11 @@ You can install the package globally and use it as command line tool:
 
 
 ```sh
-$ npm i -g cli-gh-cal
+# Using npm
+npm install --global cli-gh-cal
+
+# Using yarn
+yarn global add cli-gh-cal
 ```
 
 
@@ -52,10 +56,14 @@ Documentation can be found at https://github.com/IonicaBizau/cli-gh-cal.
 ## :clipboard: Example
 
 
-Here is an example how to use this package as library. To install it locally, as library, you can do that using `npm`:
+Here is an example how to use this package as library. To install it locally, as library, you can do that using `npm` (or `yarn`):
 
 ```sh
-$ npm i --save cli-gh-cal
+# Using npm
+npm install --save cli-gh-cal
+
+# Using yarn
+yarn add cli-gh-cal
 ```
 
 
@@ -84,7 +92,9 @@ There are few ways to get help:
 
  1. Please [post questions on Stack Overflow](https://stackoverflow.com/questions/ask). You can open issues with questions, as long you add a link to your Stack Overflow question.
  2. For bug reports and feature requests, open issues. :bug:
+
  3. For direct and quick help, you can [use Codementor](https://www.codementor.io/johnnyb). :rocket:
+
 
 
 ## :memo: Documentation
