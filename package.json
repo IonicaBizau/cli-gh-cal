@@ -35,14 +35,14 @@
     "ansi-parser": "^3.0.0",
     "bug-killer": "^4.2.5",
     "cli-box": "^6.0.5",
-    "cli-size": "^1.0.3",
     "couleurs": "^6.0.5",
     "deffy": "^2.0.0",
     "git-stats-colors": "^2.3.8",
     "moment": "^2.9.0",
     "tilda": "^4.3.3",
     "typpy": "^2.0.0",
-    "ul": "^5.0.0"
+    "ul": "^5.0.0",
+    "window-size": "^1.1.1"
   },
   "devDependencies": {},
   "files": [
