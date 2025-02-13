@@ -3,7 +3,7 @@
     "cli-gh-cal": "bin/cli-gh-cal"
   },
   "name": "cli-gh-cal",
-  "version": "1.4.13",
+  "version": "1.4.14",
   "description": "GitHub like calendar graphs in command line.",
   "main": "lib/index.js",
   "directories": {
@@ -56,6 +56,8 @@
     "menu/",
     "cli.js",
     "index.js",
+    "index.d.ts",
+    "package-lock.json",
     "bloggify.js",
     "bloggify.json",
     "bloggify/"
