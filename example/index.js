@@ -1,7 +1,6 @@
 // Dependencies
-var CliGhCal = require("../lib")
-  , Moment = require("moment")
-  ;
+const CliGhCal = require("../lib");
+const Moment = require("moment");
 
 console.log(CliGhCal([
     [Moment().format("LL"), 4]
